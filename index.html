@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./js/echarts.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="main" style="width: 500px;height:500px; margin: 0 auto;"></div>
+</body>
+<script>
+  var myChart = echarts.init(document.getElementById('main'));
+
+  // 指定图表的配置项和数据
+  option = {
+    radar: {
+      indicator: [
+        { text: 'HTML' },
+        { text: 'CSS3' },
+        { text: 'Javascript' },
+        { text: 'elementUI' },
+        { text: 'Vue' }
+      ],
+      center: ['50%', '50%'],
+      radius: '70%',
+      startAngle: 90,
+      splitNumber: 4,
+      shape: 'polygon',
+      name: {
+        formatter: '{value}',
+        textStyle: {
+          color: '#72ACD1'
+        },
+        fontSize: 14
+      },
+      splitArea: {
+        areaStyle: {
+          color: ['#B8D3E4', '#96C5E3', '#7DB5DA', '#72ACD1']
+        }
+      },
+      axisTick: {
+        show: true,
+        lineStyle: {
+          color: 'rgba(255, 255, 255, 0.8)'
+        }
+      },
+      axisLabel: {
+        show: true,
+        textStyle: {
+          color: 'white'
+        }
+      },
+      axisLine: {
+        lineStyle: {
+          color: 'rgba(255, 255, 255, 0.4)'
+        }
+      },
+      splitLine: {
+        lineStyle: {
+          color: 'rgba(255, 255, 255, 0.4)'
+        }
+      }
+    }
+  };
+
+  // 使用刚指定的配置项和数据显示图表。
+  myChart.setOption(option);
+</script>
+
+</html>
