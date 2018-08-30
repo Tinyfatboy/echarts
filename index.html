@@ -15,57 +15,42 @@
 <script>
   var myChart = echarts.init(document.getElementById('main'));
 
-  // 指定图表的配置项和数据
-  option = {
+option = {
+    tooltip: {},
+    legend: {
+        data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+    },
     radar: {
-      indicator: [
-        { text: 'HTML' },
-        { text: 'CSS3' },
-        { text: 'Javascript' },
-        { text: 'elementUI' },
-        { text: 'Vue' }
-      ],
-      center: ['50%', '50%'],
-      radius: '70%',
-      startAngle: 90,
-      splitNumber: 4,
-      shape: 'polygon',
-      name: {
-        formatter: '{value}',
-        textStyle: {
-          color: '#72ACD1'
+        // shape: 'circle',
+        name: {
+            textStyle: {
+                color: '#fff',
+                backgroundColor: '#999',
+                borderRadius: 3,
+                padding: [3, 5]
+           }
         },
-        fontSize: 14
-      },
-      splitArea: {
-        areaStyle: {
-          color: ['#B8D3E4', '#96C5E3', '#7DB5DA', '#72ACD1']
-        }
-      },
-      axisTick: {
-        show: true,
-        lineStyle: {
-          color: 'rgba(255, 255, 255, 0.8)'
-        }
-      },
-      axisLabel: {
-        show: true,
-        textStyle: {
-          color: 'white'
-        }
-      },
-      axisLine: {
-        lineStyle: {
-          color: 'rgba(255, 255, 255, 0.4)'
-        }
-      },
-      splitLine: {
-        lineStyle: {
-          color: 'rgba(255, 255, 255, 0.4)'
-        }
-      }
-    }
-  };
+        radius: "60%",
+        indicator: [
+           { name: 'HTML', max: 100},
+           { name: 'CSS3', max: 100},
+           { name: 'Javascript', max: 100},
+           { name: 'ES6', max: 100},
+           { name: 'jQuery', max: 100}
+        ]
+    },
+    series: [{
+        name: '个人技能',
+        type: 'radar',
+        // areaStyle: {normal: {}},
+        data : [
+            {
+                value : [90, 80, 85, 75, 85],
+                name : '静态&动态开发技能'
+            }
+        ]
+    }]
+};
 
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
